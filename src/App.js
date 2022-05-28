@@ -1,31 +1,54 @@
-import Header from "./components/Header";
-import Content from "./components/Content";
-import Total from "./components/Total";
+import Course from "./components/Course";
 
 const App = () => {
-  const course = {
-    name: "Half Stack Application Development",
-    parts: [
-      {
-        topic: "Fundamentals of React",
-        exercises: 10
-      },
-      {
-        topic: "Using Props to Pass Data",
-        exercises: 7
-      },
-      {
-        topic: "State of a Component",
-        exercises: 14
-      }
-    ]
-  };
+  const course = [
+    {
+      id: 1,
+      name: "Half Stack Application Development",
+      parts: [
+        {
+          topic: "Fundamentals of React",
+          exercises: 10,
+          id: 1
+        },
+        {
+          topic: "Using Props to Pass Data",
+          exercises: 7,
+          id: 2
+        },
+        {
+          topic: "State of a Component",
+          exercises: 14,
+          id: 3
+        },
+        {
+          topic: "Redux",
+          exercises: 11,
+          id: 4
+        }
+      ]
+    },
+    {
+      id: 2,
+      name: "Node.js",
+      parts: [
+        {
+          topic: "Routing",
+          exercises: 3,
+          id: 1
+        },
+        {
+          topic: "Middlewares",
+          exercises: 7,
+          id: 2
+        }
+      ]
+    }
+  ];
 
   return (
     <div>
-      <Header course={course.name} />
-      <Content parts={course.parts} />
-      <Total parts={course.parts} />
+      {course.map(c => <Course key={c.id} course={c}/>)}
     </div>
   );
 }
